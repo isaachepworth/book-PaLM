@@ -1,7 +1,7 @@
 # book-PaLM
-I created this project to be able to keep track of books owned and ones that are on your wish list. This project was started to fill a need by my wife who loves books but forgets what she has, this can be usfull for anyone that still uses papar books. I did this by using two list and two files, the files are to store the infomation when the program is closed and the list is used while running the program. in this program you will be able to add to, remove from, find, or display the the boooks you have.
+I created this project to be able to keep track of books owned and ones that are on your wish list. This project was started to fill a need by my wife who loves books but forgets what she has, this can be useful for anyone that still uses paper books. I did this by using two list and two files, the files are to store the information when the program is closed and the list is used while running the program. In this program you will be able to add to, remove from, find, or display the books you have.
 
-The program is command line bassed, as I havent learnt how to make a GUI yet, please enjoy.
+The program is command line based, as I haven’t learnt how to make a GUI yet, please enjoy.
 
 example of program while running
 
@@ -43,4 +43,4 @@ Your Books:
 9 Exit program.
 Please enter your choice: 
 
-this praject was made by Isaac Hepworth.
+this project was made by Isaac Hepworth.
