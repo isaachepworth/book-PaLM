@@ -207,7 +207,7 @@ void addWish(){
 }
 //removes books by title from the list myBookList 
 void removeBook(){
-	cout << "Enter the title of the book to be remove (-1 to exit): ";
+	cout << "Enter the title of the book to be remove (case sensitive, -1 to exit): ";
 	getline(cin, book);
 	cout << endl;
 	while (book != "-1"){
@@ -227,7 +227,7 @@ void removeBook(){
 		}
 		cout << endl;
 		if(choose()){
-			cout << "Enter the title of the book to be remove: ";
+			cout << "Enter the title of the book to be remove (case sensitive): ";
 			getline(cin, book);
 		}else{
 			break;
@@ -237,7 +237,7 @@ void removeBook(){
 }
 //removes books by title from the list myWishList
 void removeWish(){
-	cout << "Enter the title of the book to be remove (-1 to exit): ";
+	cout << "Enter the title of the book to be remove (case sensitive, -1 to exit): ";
 	getline(cin, book);
 	cout << endl;
 	while (book != "-1"){
@@ -257,7 +257,7 @@ void removeWish(){
 		}
 		cout << endl;
 		if(choose()){
-			cout << "Enter the title of the book to be remove: ";
+			cout << "Enter the title of the book to be remove (case sensitive): ";
 			getline(cin, book);
 		}else{
 			break;
