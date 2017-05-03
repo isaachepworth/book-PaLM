@@ -242,7 +242,7 @@ void removeBook(){
 }
 //removes books by title from the list myWishList
 void removeWish(){
-	cout << "Enter the Title of the book or ISPN to be remove (-1 to exit): ";
+	cout << "Enter the Title of the book to be remove (-1 to exit): ";
 	getline(cin, book);
 	cout << endl;
 	while (book != "-1"){
@@ -265,7 +265,7 @@ void removeWish(){
 		}
 		cout << endl;
 		if(choose()){
-			cout << "Enter the Title of the book or ISBN to be remove: ";
+			cout << "Enter the Title of the book to be remove: ";
 			getline(cin, book);
 		}else{
 			break;
