@@ -4,6 +4,7 @@
 #include <iostream>
 #include <list>
 #include <fstream>
+#include <algorithm>
 
 using namespace std;
 list<string> myBookList;
@@ -15,6 +16,7 @@ string title = "";
 string author = "";
 string ispn = "";
 string genre = "";
+string stringTemp = "";
 char yesOrNo = ' ';
 int temp = 0;
 int temp1 = 0;
@@ -214,8 +216,11 @@ void removeBook(){
 		temp = 0;
 		temp1 = 1;
 		for (it = myBookList.begin(); it != myBookList.end(); it++){
-			string::size_type pos = it->find(" *** ");
-			title = it->substr(0, pos);
+			stringTemp = it->substr(0);
+			transform(stringTemp.begin(), stringTemp.end(), stringTemp.begin(),::tolower);
+			transform(book.begin(), book.end(), book.begin(),::tolower);
+			string::size_type pos = stringTemp.find(" *** ");
+			title = stringTemp.substr(temp, pos);
 			if(book == title){
 				myBookList.remove(*it);
 				cout << "Removed book" << endl;
@@ -237,15 +242,18 @@ void removeBook(){
 }
 //removes books by title from the list myWishList
 void removeWish(){
-	cout << "Enter the title of the book to be remove (case sensitive, -1 to exit): ";
+	cout << "Enter the Title of the book or ISPN to be remove (-1 to exit): ";
 	getline(cin, book);
 	cout << endl;
 	while (book != "-1"){
 		temp = 0;
 		temp1 = 1;
 		for (it = myWishList.begin(); it != myWishList.end(); it++){
-			string::size_type pos = it->find(" *** ");
-			title = it->substr(0, pos);
+			stringTemp = it->substr(0);
+			transform(stringTemp.begin(), stringTemp.end(), stringTemp.begin(),::tolower);
+			transform(book.begin(), book.end(), book.begin(),::tolower);
+			string::size_type pos = stringTemp.find(" *** ");
+			title = stringTemp.substr(temp, pos);
 			if(book == title){
 				myWishList.remove(*it);
 				cout << "Removed book" << endl;
@@ -257,7 +265,7 @@ void removeWish(){
 		}
 		cout << endl;
 		if(choose()){
-			cout << "Enter the title of the book to be remove (case sensitive): ";
+			cout << "Enter the Title of the book or ISBN to be remove: ";
 			getline(cin, book);
 		}else{
 			break;
@@ -267,12 +275,15 @@ void removeWish(){
 }
 //finds books by contents from the list myBookList
 void findBook(){
-	cout << "Enter the title, Author, or ISPN of the book to find (-1 to exit): ";
+	cout << "Enter the Title, Author, ISPN, or Genre of the book to find (-1 to exit): ";
 	getline(cin, book);
 	while (book != "-1"){
 		temp1 = 1;
 		for (it = myBookList.begin(); it != myBookList.end(); it++){
-			temp = it->find(book);
+			stringTemp = it->substr(0);
+			transform(stringTemp.begin(), stringTemp.end(), stringTemp.begin(),::tolower);
+			transform(book.begin(), book.end(), book.begin(),::tolower);
+			temp = stringTemp.find(book);
 			if(temp != string::npos){
 				cout << temp1 << ") " << *it << endl;
 				temp1++;
@@ -283,7 +294,7 @@ void findBook(){
 		}
 		cout << endl;
 		if(choose()){
-			cout << "Enter the title, Author, or ISPN of the book to find: ";
+			cout << "Enter the Title, Author, ISPN, or Genre of the book to find: ";
 			getline(cin, book);
 			cout << endl;
 		}else{
@@ -294,13 +305,16 @@ void findBook(){
 }
 //finds books by contents from the list myWhishList
 void findWish(){
-	cout << "Enter the title, Author, or ISPN of the book to find (-1 to exit): ";
+	cout << "Enter the Title, Author, ISPN, or Genre of the book to find (-1 to exit): ";
 	getline(cin, book);
 	cout << endl;
 	while (book != "-1"){
 		temp1 = 1;
 		for (it = myWishList.begin(); it != myWishList.end(); ++it){
-			temp = it->find(book);
+			stringTemp = it->substr(0);
+			transform(stringTemp.begin(), stringTemp.end(), stringTemp.begin(),::tolower);
+			transform(book.begin(), book.end(), book.begin(),::tolower);
+			temp = stringTemp.find(book);
 			if(temp != string::npos){
 				cout << temp1 << ") " << *it << endl;
 				temp1++;
@@ -311,7 +325,7 @@ void findWish(){
 		}
 		cout << endl;
 		if(choose()){
-			cout << "Enter the title, Author, or ISPN of the book to find: ";
+			cout << "Enter the Title, Author, ISPN, or Genre of the book to find: ";
 			getline(cin, book);
 			cout << endl;
 		}else{
